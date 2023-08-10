@@ -1,0 +1,97 @@
+﻿@model WebApplication1.Models.Register
+<center>
+	<h2 style="color:crimson">Sign Up</h2>
+
+	<div class="row-md-12">
+		<div class="col-md-8">
+			<section id="registerForm">
+				<form id="account" method="post" asp-action="Register" asp-controller="Account">
+					<br />
+					<div asp-validation-summary="All" class="text-black"></div>
+
+
+					<div class="form-group">
+						<label style="font-family:courier" ;class="col-md-2 asp-for="Name"><strong>Name</strong></label>
+						<div class="col-md-10">
+							<input asp-for="Name" class="form-control" />
+							<span asp-validation-for="Name" class="text-black"></span>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<label style="font-family:courier" ;class="col-md-2 asp-for="Surname"><strong>Surname</strong></label>
+						<div class="col-md-10">
+							<input asp-for="Surname" class="form-control" />
+							<span asp-validation-for="Surname" class="text-black"></span>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<label style="font-family:courier" ;class="col-md-2 asp-for="Email"><strong>Email</strong></label>
+						<div class="col-md-10">
+							<input asp-for="Email" class="form-control" />
+							<span asp-validation-for="Email" class="text-black"></span>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<label style="font-family:courier" class="col-md-2 asp-for="Password"><strong>Password</strong></label>
+						<div class="col-md-10">
+							<input asp-for="Password" class="form-control" />
+							<span asp-validation-for="Password" class="text-black"></span>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<label style="font-family:courier" ;class="col-md-2 asp-for="ConfirmPassword"><strong>Confirm Password</strong></label>
+						<div class="col-md-10">
+							<input asp-for="ConfirmPassword" class="form-control" />
+							<span asp-validation-for="ConfirmPassword" class="text-black"></span>
+						</div>
+					</div>
+
+
+					<br />
+
+					<div class="form-group">
+						<label style="font-family:courier";class="col-md-2" asp-for="RoleName"><strong>Role Name</strong></label>
+						<div class="col-md-10">
+							<select asp-for="RoleName" asp-items="@WebAppFin.Helper.Helper.GetRolesForDropDown()" class="form-control"></select>
+							<span asp-validation-for="RoleName" class="text-black"></span>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<div class="col-md-12">
+							<input type="submit" value="Sign Up" class="btn btn-dark" />
+						</div>
+					</div>
+
+					<br />
+
+					<p class="col-md-12">
+						<a style="color:red;font-size:large" asp-action="Login">Sign In</a>
+					</p>
+
+				</form>
+			</section>
+		</div>
+	</div>
+</center>
+
+
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

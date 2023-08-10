@@ -1,0 +1,68 @@
+﻿@model WebApplication1.Models.Login
+<center>
+	<h2 style="color:crimson">Sign In</h2>
+
+	<div class="row-md-12">
+		<div class="col-md-8">
+			<section id="loginForm">
+				<form id="account" method="post" asp-action="Login" asp-controller="Account">
+					<br />
+					<div asp-validation-summary="All" class="text-black"></div>
+
+					<div class="form-group">
+						<label style="font-family:courier" ;class="col-md-2 asp-for="Email"><strong>Email</strong></label>
+						<div class="col-md-10">
+							<input asp-for="Email" class="form-control" />
+							<span asp-validation-for="Email" class="text-black"></span>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<label style="font-family:courier" class="col-md-2 asp-for="Password"><strong>Password</strong></label>
+						<div class="col-md-10">
+							<input asp-for="Password" class="form-control" />
+							<span asp-validation-for="Password" class="text-black"></span>
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<div class="col-md-10 checkbox">
+							<label asp-for="RememberMe" class="pr-4 pl-0">
+								<input asp-for="RememberMe"/>
+							</label>
+							Remember Me?
+						</div>
+					</div>
+
+					<br />
+
+					<div class="form-group">
+						<div class="col-md-12">
+							<input type="submit" value="Log In" class="btn btn-dark" />
+						</div>
+					</div>
+
+					<br />
+
+					<p class="col-md-12">
+						<a style="color:red;font-size:large" asp-action="Register">Sign Up</a>
+					</p>
+
+
+
+				</form>
+			</section>
+		</div>
+	</div>
+</center>
+
+
+@section Scripts{
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

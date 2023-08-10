@@ -1,0 +1,27 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<WebAppFin.Models.ApplicationUser> signInManager
+
+@model WebAppFin.Models.ShoppingLists
+
+<h2>Edit List</h2>
+
+<form asp-controller="ShoppingList" asp-action="EditList" method="post">
+    <div asp-validation-summary="All" class="text-black"></div>
+
+
+    <div>
+        <label for="ListId">List Id</label>
+        <input type="text" id="ListId" name="ListId" asp-for="ListId" value="@Model.ListId" />
+        <span asp-validation-for="ListId" class="text-danger"></span>
+
+    </div>
+
+    <div>
+        <label for="ListName">List Name</label>
+        <input type="text" id="ListName" name="ListName" asp-for="ListName" value="@Model.ListName" />
+        <span asp-validation-for="ListName" class="text-danger"></span>
+    </div>
+    <input type="hidden" name="UserName" value="@User.Identity.Name" />
+
+
+    <button type="submit">Update List</button>
+</form>

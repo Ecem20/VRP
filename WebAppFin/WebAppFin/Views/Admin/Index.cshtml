@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebAppFin.Models.Category>
+
+
+<form asp-controller="Admin" asp-action="CreateCategory">
+    <button type="submit" class="btn btn-primary">Create New Category</button>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category Id</th>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.CategoryId</td>
+                <td>@category.CategoryName</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("EditCategory", "Admin", new { id = category.CategoryId })">Edit</a>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteCategory", "Admin", new { id = category.CategoryId })">Delete</a>
+                   <a class="btn btn-info"  asp-controller="Admin" asp-action="IndexProduct" asp-route-categoryId="@category.CategoryId">View Products</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

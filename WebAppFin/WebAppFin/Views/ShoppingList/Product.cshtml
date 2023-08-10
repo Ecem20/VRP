@@ -1,0 +1,32 @@
+﻿@model List<Product>
+
+
+<a class="btn btn-success" href="@Url.Action("AddProduct", "ShoppingList")">Add Product</a>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+        </tr>
+@*        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>@item.ProductName</tr>
+            }
+        </tbody>
+        *@
+
+@*<tbody>
+@foreach(var list in Model){
+        <td>@list.ProductName</td>
+        <a class="btn btn-primary" href="@Url.Action("EditSelectedProduct", "ShoppingList", new { id = list.ProductName })">Edit</a>
+            <a class="btn btn-danger" href="@Url.Action("DeleteSelectedProduct", "ShoppingList", new { id = list.ProductName })">Delete</a>
+        }
+        </tbody>
+</thead>*@
+
+</table>
+
+<a asp-controller="ShoppingList" asp-action="Index" class="btn btn-primary">Back to Lists</a>
+

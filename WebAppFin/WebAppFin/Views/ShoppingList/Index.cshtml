@@ -1,0 +1,29 @@
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<WebAppFin.Models.ApplicationUser> signInManager
+
+@model IEnumerable<WebAppFin.Models.ShoppingLists>
+
+<h2>Welcome, @User.Identity.Name</h2>
+<a class="btn btn-success" href="@Url.Action("CreateList", "ShoppingList")">Create List</a>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>List Id</th>
+            <th>List Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var list in Model)
+        {
+            <tr>
+                <td>@list.ListId</td>
+                <td>@list.ListName</td>
+                <td>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteList", "ShoppingList", new { id = list.ListId })">Delete</a>
+                    <a class="btn btn-info" asp-controller="ShoppingList" asp-action="Product" asp-route-categoryId="@list.ListId">View Products</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

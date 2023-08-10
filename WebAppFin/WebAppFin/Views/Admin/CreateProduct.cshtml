@@ -1,0 +1,36 @@
+﻿@model WebAppFin.Models.Product
+
+<form method="post" asp-action="CreateProduct">
+    <div class="border p-3">
+        <h2 class="text-black-20 mb-3">Create New Product</h2>
+    <div class="row mb-3">
+
+            <div class="col-md-4">
+                <label asp-for="ProductId" class="form-label">Product Id</label>
+                <input asp-for="ProductId" class="form-control" />
+                <span asp-validation-for="ProductId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="ProductName" class="form-label">Product Name</label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="CategoryId" class="form-label">Category Id</label>
+                <input asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+
+
+       </div>
+
+        <div class="row mt-3">
+            <div class="col-4">
+                <input type="submit" class="btn btn-info w-100" value="Create" />
+            </div>
+        </div>
+    </div>
+</form>

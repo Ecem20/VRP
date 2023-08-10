@@ -1,0 +1,40 @@
+﻿@model WebAppFin.Models.Category
+
+<h3>@Model.CategoryName Product List</h3>
+
+<div class="d-flex justify-content-between">
+    <form asp-controller="Admin" asp-action="CreateProduct">
+        <button type="submit" class="btn btn-primary">Create New Product</button>
+    </form>
+
+    <form asp-controller="Admin" asp-action="Index">
+        <button type="submit" class="btn btn-secondary">Back to Categories</button>
+    </form>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Category Id</th>
+            <th>Product Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+         @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td>@product.CategoryId</td>
+                <td>@product.ProductName</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("EditProduct", "Admin", new { id = product.ProductId })">Edit</a>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteProduct", "Admin", new { id = product.ProductId })">Delete</a>
+                </td>
+                @*<td>@product.Icon</td>*@
+            </tr>
+        }
+
+    </tbody>
+</table>

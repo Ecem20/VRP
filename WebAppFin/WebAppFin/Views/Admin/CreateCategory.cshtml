@@ -1,0 +1,26 @@
+﻿@model WebAppFin.Models.Category
+
+<form method="post" asp-action="CreateCategory">
+    <div class="border p-3">
+        <h2 class="text-black-20 mb-3">Create New Category</h2>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label asp-for="CategoryId" class="form-label">Category Id</label>
+                <input asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="CategoryName" class="form-label">Category Name</label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-4">
+                <input type="submit" class="btn btn-info w-100" value="Create" />
+            </div>
+        </div>
+    </div>
+</form>

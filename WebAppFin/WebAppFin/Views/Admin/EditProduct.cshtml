@@ -1,0 +1,38 @@
+﻿@model WebAppFin.Models.Product
+
+<h2>Edit Product</h2>
+
+<form asp-controller="Admin" asp-action="EditProduct" method="post">
+
+    <div>
+        <label for="ProductId">Product Id:</label>
+        <input type="text" id="ProductId" name="ProductId" asp-for="ProductId" value="@Model.ProductId" />
+        <span asp-validation-for="ProductId" class="text-danger"></span>
+
+    </div>
+
+    <div>
+        <label for="ProductName">Product Name:</label>
+        <input type="text" id="ProductName" name="ProductName" asp-for="ProductName" value="@Model.ProductName" />
+        <span asp-validation-for="ProductName" class="text-danger"></span>
+
+    </div>
+
+    <div>
+        <label for="CategoryId">Category Id:</label>
+        <input type="text" id="CategoryId" name="CategoryId" asp-for="CategoryId" value="@Model.CategoryId" />
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+   @* <div class="form-group">
+        <label for="Icon">Product Icon</label>
+        <input type="text" id="Icon" name="Icon" />
+        <img src="@Model.Icon" alt="Icon">
+        <span asp-validation-for="Icon" class="text-danger"></span>
+
+
+    </div>*@
+
+
+    <button type="submit">Update Product</button>
+</form>
